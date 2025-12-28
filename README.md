@@ -20,7 +20,7 @@ y mantener evidencia clara de aprendizaje continuo.
 - Arquitectura de software
 - DevOps & Tools
 - English for Developers
-- Habilidades blandasñ
+- Habilidades blandas
 
 Cada módulo contiene:
 - Notas en Markdown
