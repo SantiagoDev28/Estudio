@@ -4,6 +4,7 @@ package estudio.personal;
 
 import estudio.personal.contenido.Pelicula;
 import estudio.personal.plataforma.Usuario;
+import estudio.personal.util.ScannerUtils;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -12,28 +13,40 @@ import java.util.Scanner;
 
 // Clase principal que correra nuestro codigo.
 public class Main {
+    // Constantes en Java.
+    public static final String VERSION = "1.0.0";
+    public static final String NOMBRE_PLATAFORMA = "PeList";
+
     public static void main(String[] args) {
         // sout que sirve para mostrar mensajes por consola.
-        System.out.println("Estudio Personal ");
+        System.out.println( NOMBRE_PLATAFORMA + " V " + VERSION);
+
+        // CLASE 2 = Implementando metodos estaticos.
+        String nombre = ScannerUtils.capturarTexto("Cual es el nombre del contenido");
+        String genero = ScannerUtils.capturarTexto("Genero del contenido");
+        int duracion = ScannerUtils.capturarNumero("Duracion del contenido");
+        double calificacion = ScannerUtils.capturarDecimal("Calificacion del contenido");
 
         // EJERCICIO #2 = Uso de la clase Pelicula 
         Pelicula pelicula = new Pelicula();
-        pelicula.titulo = "El señor de los anillos";
-        pelicula.duracion = 120;
+        pelicula.titulo = nombre;
+        pelicula.duracion = duracion;
         pelicula.fechaDeEstreno = LocalDate.of(2018,10,15);
-        pelicula.genero = "Fantasia";
-        pelicula.calificar(4.7);
+        pelicula.genero = genero;
+        pelicula.calificar(calificacion);
 
-        // Casting Implicito
-        long duracionLong = pelicula.duracion;
-        System.out.println("Duracion Long: "+ duracionLong);
         System.out.println(pelicula.obtenerFichaTecnica());
 
-        // Casting explicito
-        int calificacionInt = (int) pelicula.calificacion;
-        System.out.println("La calificacion es: " + calificacionInt);
-        Long numeroDePremios = Long.parseLong("25");
-        System.out.println("La cantidad de premios es: " + numeroDePremios);
+//        // Casting Implicito
+//        long duracionLong = pelicula.duracion;
+//        System.out.println("Duracion Long: "+ duracionLong);
+//        System.out.println(pelicula.obtenerFichaTecnica());
+//
+//        // Casting explicito
+//        int calificacionInt = (int) pelicula.calificacion;
+//        System.out.println("La calificacion es: " + calificacionInt);
+//        Long numeroDePremios = Long.parseLong("25");
+//        System.out.println("La cantidad de premios es: " + numeroDePremios);
 
         // EJERCICIO #3 = Uso de la clase Usuario
         Usuario usuario = new Usuario();

@@ -34,3 +34,12 @@ Casting implicito es la conversion de un tipo de dato mas grande a un tipo de da
 ## Casting explicito
 
 Casting explicito es la conversion de un tipo de dato mas pequeno a un tipo de dato mas grande.
+
+# Constantes en Java
+
+Las constantes son valores que no pueden ser cambiados durante la ejecucion del programa.
+
+Se definen con la palabra reservada final que nos indica que son constantes y como buena practica el nombre de estas variables puede ser escrito en mayusculas y separadas por guiones bajos.
+
+Ejemplo de constante utilizada en la seccion de POO (Programacion Orientada a Objetos).
+[EJEMPLO](../java/ejercicios/java-poo/src/estudio/personal/Main.java#L17)

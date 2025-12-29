@@ -13,18 +13,18 @@ de programación orientada a objetos.
 
 ## Ruta de aprendizaje
 
-1. 📘 [Fundamentos de Java](./basics.md)
+1. 📘 [Fundamentos de Java](basicos.md)
    - Variables
    - Tipos de datos
    - Condicionales y bucles
 
-2. 📗 [Programación Orientada a Objetos](./oop.md)
+2. 📗 [Programación Orientada a Objetos](poo.md)
    - Clases y objetos
    - Encapsulamiento
    - Herencia y polimorfismo
 
-3. 📙 [Principios SOLID](./solid.md)
+3. 📙 [Principios SOLID](solid.md)
    - Conceptos
    - Ejemplos básicos en Java
 
-4. 🧪 [Ejercicios prácticos](./exercises/README.md)
+4. 🧪 [Ejercicios prácticos](./ejercicios/java-poo/)
