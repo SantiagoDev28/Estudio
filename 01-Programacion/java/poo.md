@@ -26,3 +26,6 @@ Un objeto es cualquier cosa, real o abstracta, en la que se almacenan datos y aq
 2. Encapsulamiento: 
 3. Herencia:
 4. Polimorfismo: 
+
+# Constructores.
+Los constructores en Programacion orientada a objetos son metodos especiales que se llaman al crear un objeto, y se encargan de inicializar los atributos de la clase.

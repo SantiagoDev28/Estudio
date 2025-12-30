@@ -13,6 +13,21 @@ public class Pelicula {
     public LocalDate fechaDeEstreno;
     public boolean disponible;
 
+    // CONSTRUCTOR
+    // Se debe crear despues de los atributos como buena practica.
+    public Pelicula(String titulo, int duracion, String genero){
+        this.titulo = titulo;
+        this.duracion = duracion;
+        this.genero = genero;
+        this.fechaDeEstreno = LocalDate.now();
+
+    }
+
+    public Pelicula(String titulo, int duracion, String genero, double calificacion) {
+        this(titulo,duracion,genero);
+        this.calificar(calificacion);
+    }
+
     // METODOS
     public void reproducir(){
         System.out.println("Reproduciendo " + titulo);

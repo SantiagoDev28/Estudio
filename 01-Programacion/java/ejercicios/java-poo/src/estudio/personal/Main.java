@@ -28,12 +28,12 @@ public class Main {
         double calificacion = ScannerUtils.capturarDecimal("Calificacion del contenido");
 
         // EJERCICIO #2 = Uso de la clase Pelicula 
-        Pelicula pelicula = new Pelicula();
-        pelicula.titulo = nombre;
-        pelicula.duracion = duracion;
-        pelicula.fechaDeEstreno = LocalDate.of(2018,10,15);
-        pelicula.genero = genero;
-        pelicula.calificar(calificacion);
+        Pelicula pelicula = new Pelicula(nombre , duracion , genero, calificacion);
+//        pelicula.titulo = nombre;
+//        pelicula.duracion = duracion;
+//        pelicula.fechaDeEstreno = LocalDate.of(2018,10,15);
+//        pelicula.genero = genero;
+
 
         System.out.println(pelicula.obtenerFichaTecnica());
 

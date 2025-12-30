@@ -31,3 +31,8 @@ En esta ocasión creé un nuevo paquete de utilidades que contiene una clase con
 En el codigo fuente se puede observar como se utiliza la clase ScannerUtils para capturar los datos del usuario y luego imprimirlos en pantalla.
 
 [Codigo fuente](../java-poo/src/estudio/personal/Main.java#L21)
+
+# Tercera Clase en Java.
+
+En esta ocasion le agregamos a nuetra clase pelicula un metodo constructor que nos permite inicializar los atributos de nuestra clase.
+[Ejemplo](../java-poo/src/estudio/personal/contenido/Pelicula.java#L16)
