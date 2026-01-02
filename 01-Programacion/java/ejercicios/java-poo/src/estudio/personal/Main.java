@@ -3,12 +3,12 @@ package estudio.personal;
 // Servira para agrupar clases relacionadas.
 
 import estudio.personal.contenido.Pelicula;
+import estudio.personal.plataforma.Plataforma;
 import estudio.personal.plataforma.Usuario;
 import estudio.personal.util.ScannerUtils;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Scanner;
+
 // Clase que permite leer datos desde la consola.
 
 // Clase principal que correra nuestro codigo.
@@ -21,6 +21,8 @@ public class Main {
         // sout que sirve para mostrar mensajes por consola.
         System.out.println( NOMBRE_PLATAFORMA + " V " + VERSION);
 
+        Plataforma plataforma = new Plataforma(NOMBRE_PLATAFORMA);
+
         // CLASE 2 = Implementando metodos estaticos.
         String nombre = ScannerUtils.capturarTexto("Cual es el nombre del contenido");
         String genero = ScannerUtils.capturarTexto("Genero del contenido");
@@ -29,10 +31,24 @@ public class Main {
 
         // EJERCICIO #2 = Uso de la clase Pelicula 
         Pelicula pelicula = new Pelicula(nombre , duracion , genero, calificacion);
+        Pelicula pelicula2 = new Pelicula("Hulk", 140, "Heroes");
 //        pelicula.titulo = nombre;
 //        pelicula.duracion = duracion;
 //        pelicula.fechaDeEstreno = LocalDate.of(2018,10,15);
 //        pelicula.genero = genero;
+
+        // Agregamos nuevos elementos a la lista de peliculas.
+        plataforma.agregar(pelicula);
+        plataforma.agregar(pelicula2);
+
+        plataforma.eliminar(pelicula2);
+        // Mostramos numero de contenido almacenado en nuestra nueva lista.
+        System.out.println("Numero de peliculas en nuestra plataforma: " + plataforma.getContenido().size());
+
+
+        // Recorrido de la lista creada.
+
+        plataforma.mostrarTitulos();
 
         // CLASE 4 = Encapsulamiento.
         // Actualmente al no aplicar este pilar de POO los atributos presentan el sigiente error al ejecutar, son cambiables incluso despues
@@ -43,7 +59,8 @@ public class Main {
 
         // Pero si podemos obtener los atributos de la siguiente manera:
         pelicula.getTitulo();
-        System.out.println(pelicula.obtenerFichaTecnica());
+
+
 
 //        // Casting Implicito
 //        long duracionLong = pelicula.duracion;
@@ -59,13 +76,13 @@ public class Main {
         // EJERCICIO #3 = Uso de la clase Usuario
         Usuario usuario = new Usuario();
 
-        usuario.nombre = "Santiago";
-
-        // Uso de datos por referencia (LocalDate)
-        usuario.fechaRegistro = LocalDateTime.now();
-
-        System.out.println(usuario.fechaRegistro);
-        usuario.ver(pelicula);
+//        usuario.nombre = "Santiago";
+//
+//        // Uso de datos por referencia (LocalDate)
+//        usuario.fechaRegistro = LocalDateTime.now();
+//
+//        System.out.println(usuario.fechaRegistro);
+//        usuario.ver(pelicula);
 
 
 

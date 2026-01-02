@@ -60,3 +60,10 @@ Con los get al obtener informacion no deberiamos de tener problemas pero con los
 debemos de ser mas cuidadosos
 
 [Ejemplos de uso](../java-poo/src/estudio/personal/contenido/Pelicula.java)
+
+## Listas en Java.
+
+Las listas en java nos permiten almacenar una coleccion de elementos en una estructura de datos dinamica.
+Estas listas pueden ser de tipo primitivo o de objetos.
+
+[Ejemplo](../java-poo/src/estudio/personal/plataforma/Plataforma.java)  
