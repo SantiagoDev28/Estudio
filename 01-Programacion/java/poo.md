@@ -23,7 +23,12 @@ Un objeto es cualquier cosa, real o abstracta, en la que se almacenan datos y aq
 
     La abstracción consiste en modelar un objeto mostrando únicamente la información y los comportamientos relevantes, ocultando los detalles internos que no son necesarios para su uso.
 
-2. Encapsulamiento: 
+2. Encapsulamiento:
+    El encapsulamiento en POO nos permite proteger los detalles sensibles de nuestras clases, manteniendo su integridad y seguridad.
+    Siendo accesibles unicamente desde la misma clase con metodos especiales llamados Getters y Setters.
+    Mas soble el encapsulamiento se encuentra:
+    [Clase #4](../java/ejercicios/java-poo/README.md#encapsulamiento-en-java)
+    
 3. Herencia:
 4. Polimorfismo: 
 

@@ -34,7 +34,15 @@ public class Main {
 //        pelicula.fechaDeEstreno = LocalDate.of(2018,10,15);
 //        pelicula.genero = genero;
 
+        // CLASE 4 = Encapsulamiento.
+        // Actualmente al no aplicar este pilar de POO los atributos presentan el sigiente error al ejecutar, son cambiables incluso despues
+        // de asignarles un valor desde la consola.
 
+        // El atributo ahora es privado por lo tanto no podemos realizar la siguiente asignacion:
+        // pelicula.calificacion = 5;
+
+        // Pero si podemos obtener los atributos de la siguiente manera:
+        pelicula.getTitulo();
         System.out.println(pelicula.obtenerFichaTecnica());
 
 //        // Casting Implicito

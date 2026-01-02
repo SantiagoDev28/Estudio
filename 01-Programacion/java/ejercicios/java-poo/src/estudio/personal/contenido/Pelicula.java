@@ -5,13 +5,14 @@ import java.time.LocalDate;
 // Creamos la clase pelicula con cada uno de sus atributos.
 public class Pelicula {
     // ATRIBUTOS
-    public String titulo;
-    public String descripcion;
-    public int duracion;
-    public String genero;
-    public double calificacion;
-    public LocalDate fechaDeEstreno;
-    public boolean disponible;
+    // Una buena practica es mantener los atributos de las clases privados por defecto.
+    private String titulo;
+    private String descripcion;
+    private int duracion;
+    private String genero;
+    private double calificacion;
+    private LocalDate fechaDeEstreno;
+    private boolean disponible;
 
     // CONSTRUCTOR
     // Se debe crear despues de los atributos como buena practica.
@@ -47,5 +48,54 @@ public class Pelicula {
 
     public boolean esPopular(){
         return calificacion >= 4;
+    }
+
+
+    // GETTERS Y SETTERS
+    // Es considerada una buena practica mantenerlos al final de la clase.
+
+    // Metodo encargado de obtener el valor almacenado en el atributo titulo.
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public double getCalificacion() {
+        return calificacion;
+    }
+
+    public LocalDate getFechaDeEstreno() {
+        return fechaDeEstreno;
+    }
+
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
+    public void setFechaDeEstreno(LocalDate fechaDeEstreno) {
+        this.fechaDeEstreno = fechaDeEstreno;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
     }
 }
