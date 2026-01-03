@@ -67,3 +67,27 @@ Las listas en java nos permiten almacenar una coleccion de elementos en una estr
 Estas listas pueden ser de tipo primitivo o de objetos.
 
 [Ejemplo](../java-poo/src/estudio/personal/plataforma/Plataforma.java)  
+
+Busqueda y eliminacion en listas, mas filtros y ordenamientos con lambda y streams: 
+
+[Ejemplo](../java-poo/src/estudio/personal/plataforma/Plataforma.java#L23-L45)
+
+# Quinta clase en Java.
+
+## Relaciones entre clases.
+
+Asociacion: Dos clases se conocen, pero no dependen una de la otra. Son independientes pero pueden trabajar juntas.
+
+Agregacion: Siguen siendo clases independientes pero con un poco mas de relacion, una clase contiene a la otra como atributo, pero no la controla por completo.
+Se puede eliminar sin que la clase princial se vea afectada.
+
+Composicion: Una clase, crea, posee y controla a otra clase dentro de su propia estructura.
+
+## Flujos de control.
+
+Estos flujos de control nos permiten llevar a cabo una accion dependiendo de una condicion.
+En el siguiente ejemplo con el flujo de control switch:
+[Ejemplo](../java-poo/src/estudio/personal/Main.java#32)
+
+A partir de esta clase se reescribio todo el contenido del archivo main principal para dejar todo lo aprendido en un solo proyecto entendible y bien estructurado.
+Aqui se encontrara todo lo anterior visto en las clases pasadas ya dedicado a un mini proyecto de peliculas.

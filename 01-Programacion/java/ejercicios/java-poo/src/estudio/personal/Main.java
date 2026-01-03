@@ -8,105 +8,105 @@ import estudio.personal.plataforma.Usuario;
 import estudio.personal.util.ScannerUtils;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-// Clase que permite leer datos desde la consola.
+// A partir del dia 5 se borro el contenido anterior para crear una nueva version del proyecto.
+// Aca aplico todo lo antes visto de manera mas organizada y estructurada.
 
 // Clase principal que correra nuestro codigo.
 public class Main {
     // Constantes en Java.
     public static final String VERSION = "1.0.0";
     public static final String NOMBRE_PLATAFORMA = "PeList";
+    public static final int AGREGAR = 1;
+    public static final int MOSTRAR_TODO = 2;
+    public static final int BUSCAR_POR_TITULO = 3;
+    public static final int BUSCAR_POR_GENERO = 4;
+    public static final int dw= 5;
+    public static final int dd = 6;
+    public static final int ELIMINAR = 7;
+    public static final int SALIR = 8;
 
     public static void main(String[] args) {
         // sout que sirve para mostrar mensajes por consola.
-        System.out.println( NOMBRE_PLATAFORMA + " V " + VERSION);
+        System.out.println(NOMBRE_PLATAFORMA + " V " + VERSION);
 
         Plataforma plataforma = new Plataforma(NOMBRE_PLATAFORMA);
 
-        // CLASE 2 = Implementando metodos estaticos.
-        String nombre = ScannerUtils.capturarTexto("Cual es el nombre del contenido");
-        String genero = ScannerUtils.capturarTexto("Genero del contenido");
-        int duracion = ScannerUtils.capturarNumero("Duracion del contenido");
-        double calificacion = ScannerUtils.capturarDecimal("Calificacion del contenido");
-
-        // EJERCICIO #2 = Uso de la clase Pelicula 
-        Pelicula pelicula = new Pelicula(nombre , duracion , genero, calificacion);
-        Pelicula pelicula2 = new Pelicula("Hulk", 140, "Heroes");
-//        pelicula.titulo = nombre;
-//        pelicula.duracion = duracion;
-//        pelicula.fechaDeEstreno = LocalDate.of(2018,10,15);
-//        pelicula.genero = genero;
-
-        // Agregamos nuevos elementos a la lista de peliculas.
-        plataforma.agregar(pelicula);
-        plataforma.agregar(pelicula2);
-
-        plataforma.eliminar(pelicula2);
-        // Mostramos numero de contenido almacenado en nuestra nueva lista.
-        System.out.println("Numero de peliculas en nuestra plataforma: " + plataforma.getContenido().size());
+        cargarPeliculas(plataforma);
 
 
-        // Recorrido de la lista creada.
+        while (true) {
+            int opcionElegida = ScannerUtils.capturarNumero("""
+                       Ingresa una de las siguientes opciones: 
+                        1. Agregar contenido.
+                        2. Mostrar todo.
+                        3. Buscar por titulos. 
+                        4. Buscar por genero.
+                        6. Eliminar contenido.
+                        7. Salir de la plataforma.
+                    """);
+            System.out.println("Opcion elegida: " + opcionElegida);
 
-        plataforma.mostrarTitulos();
+            switch (opcionElegida) {
+                case AGREGAR -> {
+                    String nombre = ScannerUtils.capturarTexto("Cual es el nombre del contenido");
+                    String genero = ScannerUtils.capturarTexto("Genero del contenido");
+                    int duracion = ScannerUtils.capturarNumero("Duracion del contenido");
+                    double calificacion = ScannerUtils.capturarDecimal("Calificacion del contenido");
 
-        // CLASE 4 = Encapsulamiento.
-        // Actualmente al no aplicar este pilar de POO los atributos presentan el sigiente error al ejecutar, son cambiables incluso despues
-        // de asignarles un valor desde la consola.
+                    plataforma.agregar(new Pelicula(nombre, duracion, genero, calificacion));
+                }
+                case MOSTRAR_TODO -> plataforma.mostrarTitulos();
 
-        // El atributo ahora es privado por lo tanto no podemos realizar la siguiente asignacion:
-        // pelicula.calificacion = 5;
+                case BUSCAR_POR_TITULO -> {
+                    String nombreBuscado = ScannerUtils.capturarTexto("Nombre de la pelicula a buscar");
+                    Pelicula pelicula = plataforma.buscarPorTitulo(nombreBuscado);
 
-        // Pero si podemos obtener los atributos de la siguiente manera:
-        pelicula.getTitulo();
+                    if (pelicula != null){
+                        System.out.println(pelicula.obtenerFichaTecnica());
+                    }else{
+                        System.out.println(nombreBuscado + " no existe dentro de " + NOMBRE_PLATAFORMA);
+                    }
+                }
 
+                case BUSCAR_POR_GENERO -> {
+                    String generoBuscado = ScannerUtils.capturarTexto("Busca por genero: ");
+                    List<Pelicula> busquedaPorGenero = plataforma.buscarPorGenero(generoBuscado);
+                    System.out.println(busquedaPorGenero.size() + " encontrados para el genero " + generoBuscado);
+                    busquedaPorGenero.forEach(contenido -> System.out.println(contenido.obtenerFichaTecnica() + "\n"));
+                }
 
+                case ELIMINAR -> {
+                    String peliculaAEliminar = ScannerUtils.capturarTexto("Escribe el nombre de la pelicula que quieres eliminar: ");
+                    Pelicula obtenerPelicula = plataforma.buscarPorTitulo(peliculaAEliminar);
 
-//        // Casting Implicito
-//        long duracionLong = pelicula.duracion;
-//        System.out.println("Duracion Long: "+ duracionLong);
-//        System.out.println(pelicula.obtenerFichaTecnica());
-//
-//        // Casting explicito
-//        int calificacionInt = (int) pelicula.calificacion;
-//        System.out.println("La calificacion es: " + calificacionInt);
-//        Long numeroDePremios = Long.parseLong("25");
-//        System.out.println("La cantidad de premios es: " + numeroDePremios);
+                    if (obtenerPelicula != null){
+                        System.out.println(obtenerPelicula.getTitulo() + " Eliminada con exito");
+                        plataforma.eliminar(obtenerPelicula);
+                    }else {
+                        System.out.println(peliculaAEliminar + " No existe dentro de " + plataforma.getNombre());
+                    }
+                }
 
-        // EJERCICIO #3 = Uso de la clase Usuario
-        Usuario usuario = new Usuario();
-
-//        usuario.nombre = "Santiago";
-//
-//        // Uso de datos por referencia (LocalDate)
-//        usuario.fechaRegistro = LocalDateTime.now();
-//
-//        System.out.println(usuario.fechaRegistro);
-//        usuario.ver(pelicula);
-
-
-
-//        // EJERCICIO #1 = Uso de la clase Scanner
-//        // definimos un nuevo objeto de la clase scanner para recibir datos desde la terminal con el parametro system.in
-//        Scanner scanner = new Scanner(System.in);
-//
-//
-//        System.out.println("Ingresa tu nombre completo");
-//
-//        // Variable para guardar una linea de texto.
-//        String nombre = scanner.nextLine();
-//
-//        // Concatenamos variables y lineas de texto.
-//        System.out.println("Hola " + nombre + "Esta es tu primera practica con java");
-//
-//        System.out.println(nombre + "Cuantos años tienes?");
-//
-//        // Variable que guarda numero enteros ingresados por consola.
-//        int edad = scanner.nextInt();
-//
-//        System.out.println(nombre + "Tu edad es " + edad);
-
-
+                case SALIR -> System.exit(0);
+            }
+        }
 
     }
+
+    private static void cargarPeliculas(Plataforma plataforma) {
+        plataforma.agregar(new Pelicula("Shrek", 90, "Animada"));
+        plataforma.agregar(new Pelicula("Inception", 148, "Ciencia Ficción"));
+        plataforma.agregar(new Pelicula("Titanic", 195, "Drama", 4.6));
+        plataforma.agregar(new Pelicula("John Wick", 101, "Acción"));
+        plataforma.agregar(new Pelicula("El Conjuro", 112, "Terror", 3.0));
+        plataforma.agregar(new Pelicula("Coco", 105, "Animada", 4.7));
+        plataforma.agregar(new Pelicula("Interstellar", 169, "Ciencia Ficción", 5));
+        plataforma.agregar(new Pelicula("Joker", 122, "Drama"));
+        plataforma.agregar(new Pelicula("Toy Story", 81, "Animada", 4.5));
+        plataforma.agregar(new Pelicula("Avengers: Endgame", 181, "Acción", 3.9));
+    }
 }
+
+
