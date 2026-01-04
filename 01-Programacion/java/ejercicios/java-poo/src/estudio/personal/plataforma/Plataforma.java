@@ -1,8 +1,10 @@
 package estudio.personal.plataforma;
 
+import estudio.personal.contenido.Genero;
 import estudio.personal.contenido.Pelicula;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 // LSTAS.
@@ -20,17 +22,6 @@ public class Plataforma {
         this.contenido.add(elemento);
     }
 
-    public void mostrarTitulos(){
-        // Este tipo de for mejorado se lee de la siguiente manera:
-        // Para cada Pelicula llamada pelicula dentro de la coleccion contenido obtener su titulo.
-//        for (Pelicula pelicula : contenido){
-//            System.out.println(pelicula.getTitulo());
-//        }
-
-        // Con forEach
-        // Lambda
-        contenido.forEach(pelicula -> System.out.println(pelicula.getTitulo()));
-    }
 
     public void eliminar(Pelicula elemento) {
         this.contenido.remove(elemento);
@@ -43,10 +34,55 @@ public class Plataforma {
                 .orElse(null);
     }
 
-    public List<Pelicula> buscarPorGenero(String genero){
+    public List<Pelicula> buscarPorGenero(Genero genero){
         return contenido.stream()
-                .filter(contenido -> contenido.getGenero().equalsIgnoreCase(genero))
+                .filter(contenido -> contenido.getGenero().equals(genero))
                 .toList();
+    }
+
+    public List<String> getTitulos(){
+        // Este tipo de for mejorado se lee de la siguiente manera:
+        // Para cada Pelicula llamada pelicula dentro de la coleccion contenido obtener su titulo.
+//        for (Pelicula pelicula : contenido){
+//            System.out.println(pelicula.getTitulo());
+//        }
+
+        // Con forEach
+        // Lambda
+        return contenido.stream()
+                .map(Pelicula::getTitulo)
+                .toList();
+
+    }
+
+    public int getDuracionTotal(){
+       return contenido.stream()
+                .mapToInt(Pelicula::getDuracion)
+               .sum();
+    }
+
+    public List<Pelicula> getPopulares(int cantidad){
+        return contenido.stream()
+                .sorted(Comparator.comparing(Pelicula::getCalificacion).reversed())
+                .limit(cantidad)
+                .toList();
+    }
+
+    public List<Pelicula> getMuyPopulares(){
+        return contenido.stream()
+                .filter(Pelicula::esPopular)
+                .toList();
+    }
+
+    public Pelicula getMasCorta(){
+        return contenido.stream().min(Comparator.comparingInt(Pelicula::getDuracion))
+                .orElse(null);
+    }
+
+    public Pelicula getMasLarga(){
+        return contenido.stream()
+                .max(Comparator.comparingInt(Pelicula::getDuracion))
+                .orElse(null);
     }
 
     public String getNombre() {

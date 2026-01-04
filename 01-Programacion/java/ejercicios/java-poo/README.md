@@ -91,3 +91,20 @@ En el siguiente ejemplo con el flujo de control switch:
 
 A partir de esta clase se reescribio todo el contenido del archivo main principal para dejar todo lo aprendido en un solo proyecto entendible y bien estructurado.
 Aqui se encontrara todo lo anterior visto en las clases pasadas ya dedicado a un mini proyecto de peliculas.
+
+# Sexta clase en Java.
+
+En esta clase, aplique mas metodos con Streams y lambda para mejorar el codigo de la clase Plataforma haciendolo mas limpio y facil de entender.
+
+[Evidencia](../java-poo/src/estudio/personal/plataforma/Plataforma.java#L29)
+
+## Validaciones de entrada con Enums.
+
+Con estas validaciones buscamos definir un conjunto de valores constantes que haran nuestro codigo mas limpio y seguro.
+De esta manera podemos controlar lo que el usuario ingrese por consola y asi evitar posibles errores, mantenendo el codigo mas seguro.
+
+[Enum creado](../java-poo/src/estudio/personal/contenido/Genero.java)
+
+y lo usamos dentro de la clase Pelicula para definir el genero de la pelicula: [Ejemplo](../java-poo/src/estudio/personal/contenido/Pelicula.java#L12)
+
+tambien ajustando nuestra clase ScannerUtils para que nos permita usar el enum de Genero: [Ejemplo](../java-poo/src/estudio/personal/util/ScannerUtils.java#L46)

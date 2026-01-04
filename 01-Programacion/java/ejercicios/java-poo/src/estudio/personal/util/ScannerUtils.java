@@ -1,5 +1,8 @@
 package estudio.personal.util;
 
+import estudio.personal.contenido.Genero;
+
+import javax.sound.midi.Soundbank;
 import java.util.Scanner;
 
 // En este ejercicio volveremos a utilizar la clase scanner para aprender a manejar
@@ -38,5 +41,22 @@ public class ScannerUtils {
         SCANNER.nextLine();
         return dato;
 
+    }
+
+    public static Genero capturarGenero(String mensaje){
+        while (true){
+            System.out.println(mensaje + ": ...OPCIONES...");
+            for (Genero genero : Genero.values()){
+                System.out.println("-" + genero.name());
+            }
+
+            System.out.println("¿Cual quieres? ");
+            String entrada = SCANNER.nextLine();
+            try {
+                return Genero.valueOf(entrada.toUpperCase());
+            }catch(IllegalArgumentException e){
+                System.out.println("Genero no aceptado.");
+            }
+        }
     }
 }

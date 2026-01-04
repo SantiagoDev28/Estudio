@@ -9,14 +9,14 @@ public class Pelicula {
     private String titulo;
     private String descripcion;
     private int duracion;
-    private String genero;
+    private Genero genero;
     private double calificacion;
     private LocalDate fechaDeEstreno;
     private boolean disponible;
 
     // CONSTRUCTOR
     // Se debe crear despues de los atributos como buena practica.
-    public Pelicula(String titulo, int duracion, String genero){
+    public Pelicula(String titulo, int duracion, Genero genero){
         this.titulo = titulo;
         this.duracion = duracion;
         this.genero = genero;
@@ -24,7 +24,7 @@ public class Pelicula {
 
     }
 
-    public Pelicula(String titulo, int duracion, String genero, double calificacion) {
+    public Pelicula(String titulo, int duracion, Genero genero, double calificacion) {
         this(titulo,duracion,genero);
         this.calificar(calificacion);
     }
@@ -67,7 +67,7 @@ public class Pelicula {
         return duracion;
     }
 
-    public String getGenero() {
+    public Genero getGenero() {
         return genero;
     }
 
