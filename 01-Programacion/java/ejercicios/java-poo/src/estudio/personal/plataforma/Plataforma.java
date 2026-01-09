@@ -2,6 +2,7 @@ package estudio.personal.plataforma;
 
 import estudio.personal.contenido.Genero;
 import estudio.personal.contenido.Pelicula;
+import estudio.personal.contenido.ResumenContenido;
 import estudio.personal.excepcion.PeliculaExistenteException;
 
 import java.util.ArrayList;
@@ -59,6 +60,12 @@ public class Plataforma {
                 .map(Pelicula::getTitulo)
                 .toList();
 
+    }
+
+    public List<ResumenContenido> getResumenes(){
+        return contenido.stream()
+                .map(c -> new ResumenContenido(c.getTitulo(), c.getDuracion(), c.getGenero()))
+                .toList();
     }
 
     public int getDuracionTotal(){

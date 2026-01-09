@@ -4,6 +4,7 @@ package estudio.personal;
 
 import estudio.personal.contenido.Genero;
 import estudio.personal.contenido.Pelicula;
+import estudio.personal.contenido.ResumenContenido;
 import estudio.personal.excepcion.PeliculaExistenteException;
 import estudio.personal.plataforma.Plataforma;
 import estudio.personal.plataforma.Usuario;
@@ -72,8 +73,8 @@ public class Main {
                     }
                 }
                 case MOSTRAR_TODO -> {
-                    List<String> titulos = plataforma.getTitulos();
-                    titulos.forEach(System.out::println);
+                    List<ResumenContenido> contenidos = plataforma.getResumenes();
+                    contenidos.forEach(resumen -> System.out.println(resumen.titulo()));
                 }
 
                 case BUSCAR_POR_TITULO -> {

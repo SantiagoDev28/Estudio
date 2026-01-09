@@ -123,3 +123,7 @@ Y con esta controlamos el agregar peliculas ya existentes en nuestra plataforma.
 [Uso](../java-poo/src/estudio/personal/plataforma/Plataforma.java#L26)
 
 Control de excepciones con Try Catch: [Ejemplo](../java-poo/src/estudio/personal/Main.java#L68)
+
+## Records
+Los records son una nueva caracteristica de java 16 que nos permiten crear clases con atributos y metodos sin necesidad de instanciar la clase.
+[Ejemplo](../java-poo/src/estudio/personal/contenido/ResumenContenido.java)
