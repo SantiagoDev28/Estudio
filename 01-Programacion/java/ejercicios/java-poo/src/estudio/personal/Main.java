@@ -4,6 +4,7 @@ package estudio.personal;
 
 import estudio.personal.contenido.Genero;
 import estudio.personal.contenido.Pelicula;
+import estudio.personal.excepcion.PeliculaExistenteException;
 import estudio.personal.plataforma.Plataforma;
 import estudio.personal.plataforma.Usuario;
 import estudio.personal.util.ScannerUtils;
@@ -64,7 +65,11 @@ public class Main {
                     int duracion = ScannerUtils.capturarNumero("Duracion del contenido");
                     double calificacion = ScannerUtils.capturarDecimal("Calificacion del contenido");
 
-                    plataforma.agregar(new Pelicula(nombre, duracion, genero, calificacion));
+                    try{
+                        plataforma.agregar(new Pelicula(nombre, duracion, genero, calificacion));
+                    }catch (PeliculaExistenteException e){
+                        System.out.println(e.getMessage());
+                    }
                 }
                 case MOSTRAR_TODO -> {
                     List<String> titulos = plataforma.getTitulos();

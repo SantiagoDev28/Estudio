@@ -2,6 +2,7 @@ package estudio.personal.plataforma;
 
 import estudio.personal.contenido.Genero;
 import estudio.personal.contenido.Pelicula;
+import estudio.personal.excepcion.PeliculaExistenteException;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -19,6 +20,11 @@ public class Plataforma {
     }
 
     public void agregar(Pelicula elemento){
+        Pelicula contenido = this.buscarPorTitulo(elemento.getTitulo());
+
+        if (contenido != null){
+            throw new PeliculaExistenteException(elemento.getTitulo());
+        }
         this.contenido.add(elemento);
     }
 

@@ -108,3 +108,18 @@ De esta manera podemos controlar lo que el usuario ingrese por consola y asi evi
 y lo usamos dentro de la clase Pelicula para definir el genero de la pelicula: [Ejemplo](../java-poo/src/estudio/personal/contenido/Pelicula.java#L12)
 
 tambien ajustando nuestra clase ScannerUtils para que nos permita usar el enum de Genero: [Ejemplo](../java-poo/src/estudio/personal/util/ScannerUtils.java#L46)
+
+# Septima clase en Java.
+
+## Excepciones en Java.
+
+Las excepciones son eventos que pueden ocurrir en nuestro codigo y que nos permiten manejar errores de manera mas controlada.
+existen dos tipos de excepciones: Checked y Unchecked.
+Checked son las que se deben de manejar en el codigo, ya que pueden provocar problemas en tiempo de ejecucion.
+Unchecked son las que no se deben de manejar en el codigo, ya que no pueden provocar problemas en tiempo de ejecucion. 
+
+Creamos la excepcion en un nuevo paquete de excepciones: [Ejemplo](../java-poo/src/estudio/personal/excepcion/PeliculaExistenteException.java)
+Y con esta controlamos el agregar peliculas ya existentes en nuestra plataforma. 
+[Uso](../java-poo/src/estudio/personal/plataforma/Plataforma.java#L26)
+
+Control de excepciones con Try Catch: [Ejemplo](../java-poo/src/estudio/personal/Main.java#L68)
