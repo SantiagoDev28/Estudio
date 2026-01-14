@@ -5,19 +5,19 @@ import estudio.personal.contenido.Pelicula;
 import estudio.personal.contenido.ResumenContenido;
 import estudio.personal.excepcion.PeliculaExistenteException;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 // LSTAS.
 public class Plataforma {
     private String nombre;
     private List<Pelicula> contenido; // Lista de peliculas.  Relacion: Agregacion
     // Esta lista de contenidos pueden estar fuera de la plataforma, no depende de la clase.
+    private Map<Pelicula, Integer> visualizaciones;
 
     public Plataforma(String nombre){
         this.nombre = nombre;
         this.contenido = new ArrayList<>();
+        this.visualizaciones = new HashMap<>();
     }
 
     public void agregar(Pelicula elemento){
@@ -27,6 +27,19 @@ public class Plataforma {
             throw new PeliculaExistenteException(elemento.getTitulo());
         }
         this.contenido.add(elemento);
+    }
+
+    public void reproducir(Pelicula contenido){
+        int conteoActual = visualizaciones.getOrDefault(contenido, 0);
+        System.out.println(contenido.getTitulo() + " ha sido reproducido " +  conteoActual + " veces");
+
+        this.contarReproducciones(contenido);
+        contenido.reproducir();
+    }
+
+    private void contarReproducciones(Pelicula contenido){
+        int conteoActual = visualizaciones.getOrDefault(contenido, 0);
+        visualizaciones.put(contenido,conteoActual + 1);
     }
 
 

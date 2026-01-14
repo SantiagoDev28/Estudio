@@ -127,3 +127,10 @@ Control de excepciones con Try Catch: [Ejemplo](../java-poo/src/estudio/personal
 ## Records
 Los records son una nueva caracteristica de java 16 que nos permiten crear clases con atributos y metodos sin necesidad de instanciar la clase.
 [Ejemplo](../java-poo/src/estudio/personal/contenido/ResumenContenido.java)
+
+# Octava clase en Java 
+
+## Mapas 
+Los mapas son colecciones de pares clave-valor donde cada clave es unica y nos permite almacenar un valor.
+[Ejemplo](../java-poo/src/estudio/personal/plataforma/Plataforma.java#L32)
+
