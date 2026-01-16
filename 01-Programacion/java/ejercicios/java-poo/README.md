@@ -134,3 +134,11 @@ Los records son una nueva caracteristica de java 16 que nos permiten crear clase
 Los mapas son colecciones de pares clave-valor donde cada clave es unica y nos permite almacenar un valor.
 [Ejemplo](../java-poo/src/estudio/personal/plataforma/Plataforma.java#L32)
 
+# Novena clase en Java
+
+## Lectura de archivos planos y conversion a objetos.
+
+En esta clase aplico la lectura de archivos planos y la conversion a objetos para poder trabajar con los datos de la plataforma.
+Exactamente lo que hice fue crear una nueva clase para manejar este tipo de archivos llamada FileUtils, dentro de esta clase cree un metodo llamado leerContenido, este lo que hace es convertir todo el texto del archivo plano en una lista separada de atributos de la clase Pelicula, y a cada posicion de esa lista le asigno un valor equivalente al contructor de la clase Pelicula y luego instancio la clase Pelicula con esos valores, creando objetos nuevos a partir de ese archivo plano.
+[Ejemplo](../java-poo/src/estudio/personal/util/FileUtils.java#L18)
+
