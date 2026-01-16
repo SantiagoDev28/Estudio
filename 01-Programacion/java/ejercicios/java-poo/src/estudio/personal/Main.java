@@ -2,20 +2,12 @@ package estudio.personal;
 // Nombre del paquete utilizado.
 // Servira para agrupar clases relacionadas.
 
-import estudio.personal.contenido.Genero;
-import estudio.personal.contenido.Pelicula;
-import estudio.personal.contenido.ResumenContenido;
-import estudio.personal.excepcion.PeliculaExistenteException;
+import estudio.personal.contenido.*;
+import estudio.personal.excepcion.ContenidoExistenteException;
 import estudio.personal.plataforma.Plataforma;
-import estudio.personal.plataforma.Usuario;
 import estudio.personal.util.FileUtils;
 import estudio.personal.util.ScannerUtils;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 // A partir del dia 5 se borro el contenido anterior para crear una nueva version del proyecto.
@@ -67,14 +59,20 @@ public class Main {
 
             switch (opcionElegida) {
                 case AGREGAR -> {
+                    int tipoDeContenido = ScannerUtils.capturarNumero("Que tipo de contenido quieres agregar? \n 1. Pelicula \n 2. Documental");
                     String nombre = ScannerUtils.capturarTexto("Cual es el nombre del contenido");
                     Genero genero = ScannerUtils.capturarGenero("Genero del contenido");
                     int duracion = ScannerUtils.capturarNumero("Duracion del contenido");
                     double calificacion = ScannerUtils.capturarDecimal("Calificacion del contenido");
 
                     try{
-                        plataforma.agregar(new Pelicula(nombre, duracion, genero, calificacion));
-                    }catch (PeliculaExistenteException e){
+                        if (tipoDeContenido == 1 ){
+                            plataforma.agregar(new Pelicula(nombre, duracion, genero, calificacion));
+                        }else{
+                            String narrador = ScannerUtils.capturarTexto("Narrador del documental");
+                            plataforma.agregar(new Documental(nombre, duracion, genero, calificacion, narrador));
+                        }
+                    }catch (ContenidoExistenteException e){
                         System.out.println(e.getMessage());
                     }
                 }
@@ -84,11 +82,11 @@ public class Main {
                 }
 
                 case BUSCAR_POR_TITULO -> {
-                    String nombreBuscado = ScannerUtils.capturarTexto("Nombre de la pelicula a buscar");
-                    Pelicula pelicula = plataforma.buscarPorTitulo(nombreBuscado);
+                    String nombreBuscado = ScannerUtils.capturarTexto("Nombre de la contenido a buscar");
+                    Contenido contenido = plataforma.buscarPorTitulo(nombreBuscado);
 
-                    if (pelicula != null){
-                        System.out.println(pelicula.obtenerFichaTecnica());
+                    if (contenido != null){
+                        System.out.println(contenido.obtenerFichaTecnica());
                     }else{
                         System.out.println(nombreBuscado + " no existe dentro de " + NOMBRE_PLATAFORMA);
                     }
@@ -96,20 +94,20 @@ public class Main {
 
                 case BUSCAR_POR_GENERO -> {
                     Genero generoBuscado = ScannerUtils.capturarGenero("Genero a buscar: ");
-                    List<Pelicula> busquedaPorGenero = plataforma.buscarPorGenero(generoBuscado);
+                    List<Contenido> busquedaPorGenero = plataforma.buscarPorGenero(generoBuscado);
                     System.out.println(busquedaPorGenero.size() + " encontrados para el genero " + generoBuscado);
                     busquedaPorGenero.forEach(contenido -> System.out.println(contenido.obtenerFichaTecnica() + "\n"));
                 }
 
                 case VER_POPULARES -> {
                     int cantidad = ScannerUtils.capturarNumero("Cantidad de contenido popular a mostrar: ");
-                    List<Pelicula> contenidoPopular = plataforma.getPopulares(cantidad);
+                    List<Contenido> contenidoPopular = plataforma.getPopulares(cantidad);
                     contenidoPopular.forEach(contenido -> System.out.println(contenido.obtenerFichaTecnica() + "\n"));
                 }
 
                 case REPRODUCIR -> {
                     String nombre = ScannerUtils.capturarTexto("Nombre del contenido a reproducir");
-                    Pelicula contenido = plataforma.buscarPorTitulo(nombre);
+                    Contenido contenido = plataforma.buscarPorTitulo(nombre);
 
                     if (contenido != null){
                         plataforma.reproducir(contenido);
@@ -119,29 +117,29 @@ public class Main {
                 }
 
                 case VER_MUY_POPULARES -> {
-                    List<Pelicula> masPopulares = plataforma.getMuyPopulares();
+                    List<Contenido> masPopulares = plataforma.getMuyPopulares();
                     masPopulares.forEach(contenido -> System.out.println(contenido.obtenerFichaTecnica() + "\n"));
                 }
 
                 case CONTENIDO_LARGO -> {
-                    Pelicula peliculaLarga = plataforma.getMasLarga();
-                    System.out.println("La pelicula mas larga es " + peliculaLarga.obtenerFichaTecnica() + "\n");
-                    System.out.println("con una duracion de: " + peliculaLarga.getDuracion() + " minutos \n");
+                    Contenido contenidoLarga = plataforma.getMasLarga();
+                    System.out.println("La pelicula mas larga es " + contenidoLarga.obtenerFichaTecnica() + "\n");
+                    System.out.println("con una duracion de: " + contenidoLarga.getDuracion() + " minutos \n");
                 }
 
                 case CONTENIDO_CORTO -> {
-                    Pelicula peliculaCorta = plataforma.getMasCorta();
-                    System.out.println("La pelicula mas corta es " + peliculaCorta.obtenerFichaTecnica() + "\n");
-                    System.out.println("con una duracion de: " + peliculaCorta.getDuracion() + " minutos \n");
+                    Contenido contenidoCorta = plataforma.getMasCorta();
+                    System.out.println("La pelicula mas corta es " + contenidoCorta.obtenerFichaTecnica() + "\n");
+                    System.out.println("con una duracion de: " + contenidoCorta.getDuracion() + " minutos \n");
                 }
 
                 case ELIMINAR -> {
                     String peliculaAEliminar = ScannerUtils.capturarTexto("Escribe el nombre de la pelicula que quieres eliminar: ");
-                    Pelicula obtenerPelicula = plataforma.buscarPorTitulo(peliculaAEliminar);
+                    Contenido obtenerContenido = plataforma.buscarPorTitulo(peliculaAEliminar);
 
-                    if (obtenerPelicula != null){
-                        System.out.println(obtenerPelicula.getTitulo() + " Eliminada con exito");
-                        plataforma.eliminar(obtenerPelicula);
+                    if (obtenerContenido != null){
+                        System.out.println(obtenerContenido.getTitulo() + " Eliminada con exito");
+                        plataforma.eliminar(obtenerContenido);
                     }else {
                         System.out.println(peliculaAEliminar + " No existe dentro de " + plataforma.getNombre());
                     }

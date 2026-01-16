@@ -1,6 +1,6 @@
 package estudio.personal.plataforma;
 
-import estudio.personal.contenido.Pelicula;
+import estudio.personal.contenido.Contenido;
 
 import java.time.LocalDateTime;
 
@@ -12,9 +12,9 @@ public class Usuario {
     private int edad;
     private String genero;
 
-    public void ver(Pelicula pelicula){
+    public void ver(Contenido contenido){
         System.out.println(nombre + " esta viendo...");
-        pelicula.reproducir();
+        contenido.reproducir();
     }
 
     public String getNombre() {

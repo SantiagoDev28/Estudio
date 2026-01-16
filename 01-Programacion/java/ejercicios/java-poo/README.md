@@ -12,7 +12,7 @@ En este ejercicio numero dos, orientado a realizar un mini proyecto de peliculas
 
 [Ejercicio #2](../java-poo/src/estudio/personal/contenido/Pelicula.java)
 
-Creamos una segunda clase llamada usuario, con atributos minimos y un metodo llamado ver, el cual nos permita ver la pelicula que se le pasa por parametro.
+Creamos una segunda clase llamada usuario, con atributos minimos y un metodo llamado ver, el cual nos permita ver la contenido que se le pasa por parametro.
 
 [Ejercicio #3](../java-poo/src/estudio/personal/plataforma/Usuario.java)
 
@@ -34,7 +34,7 @@ En el codigo fuente se puede observar como se utiliza la clase ScannerUtils para
 
 # Tercera Clase en Java.
 
-En esta ocasion le agregamos a nuetra clase pelicula un metodo constructor que nos permite inicializar los atributos de nuestra clase.
+En esta ocasion le agregamos a nuetra clase contenido un metodo constructor que nos permite inicializar los atributos de nuestra clase.
 [Ejemplo](../java-poo/src/estudio/personal/contenido/Pelicula.java#L16)
 
 # Cuarta Clase en Java.
@@ -105,7 +105,7 @@ De esta manera podemos controlar lo que el usuario ingrese por consola y asi evi
 
 [Enum creado](../java-poo/src/estudio/personal/contenido/Genero.java)
 
-y lo usamos dentro de la clase Pelicula para definir el genero de la pelicula: [Ejemplo](../java-poo/src/estudio/personal/contenido/Pelicula.java#L12)
+y lo usamos dentro de la clase Pelicula para definir el genero de la contenido: [Ejemplo](../java-poo/src/estudio/personal/contenido/Pelicula.java#L12)
 
 tambien ajustando nuestra clase ScannerUtils para que nos permita usar el enum de Genero: [Ejemplo](../java-poo/src/estudio/personal/util/ScannerUtils.java#L46)
 
@@ -147,4 +147,14 @@ Exactamente lo que hice fue crear una nueva clase para manejar este tipo de arch
 Ahora lo que busque hacer es poder tener un registro real de las peliculas agregadas desde el sistema mandando las nuevas peliculas al archivo plano.
 
 [Ejemplo](../java-poo/src/estudio/personal/util/FileUtils.java#L19)
+
+## HERENCIA
+
+En esta clase aplico la herencia generalizando el contenido de la plataforma para poder crear objetos de diferentes tipos de contenido, y poder trabajar con ellos de manera mas eficiente.
+Aca manejamos la clase Contenido con todos los atibutos y metodos generales y se los heredamos a las clases hijas Pelicula y Documental.
+
+[Clase Padre(Contenido)](../java-poo/src/estudio/personal/contenido/Contenido.java)
+[Clase Hija(Pelicula)](../java-poo/src/estudio/personal/contenido/Pelicula.java)
+[Clase Hija(Documental)](../java-poo/src/estudio/personal/contenido/Documental.java)
+
 

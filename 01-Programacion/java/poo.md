@@ -26,10 +26,15 @@ Un objeto es cualquier cosa, real o abstracta, en la que se almacenan datos y aq
 2. Encapsulamiento:
     El encapsulamiento en POO nos permite proteger los detalles sensibles de nuestras clases, manteniendo su integridad y seguridad.
     Siendo accesibles unicamente desde la misma clase con metodos especiales llamados Getters y Setters.
-    Mas soble el encapsulamiento se encuentra:
+    Mas sobre el encapsulamiento se encuentra:
     [Clase #4](../java/ejercicios/java-poo/README.md#encapsulamiento-en-java)
     
 3. Herencia:
+    La herencia en POO nos permite crear nuevas clases basadas en clases existentes, heredando sus atributos y comportamientos.
+    Esto nos permite reutilizar codigo y facilitar la mantenibilidad de nuestros proyectos.
+    Mas sobre la herencia se encuentra:
+    [Clase #9](../java/ejercicios/java-poo/README.md#HERENCIA)
+
 4. Polimorfismo: 
 
 # Constructores.

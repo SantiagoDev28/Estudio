@@ -1,7 +1,7 @@
 package estudio.personal.util;
 
+import estudio.personal.contenido.Contenido;
 import estudio.personal.contenido.Genero;
-import estudio.personal.contenido.Pelicula;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,7 +16,7 @@ public class FileUtils {
     public static final String NOMBRE_ARCHIVO = "contenido.txt";
     public static final String SEPARADOR = "|";
 
-    public static void escribirContenido(Pelicula contenido){
+    public static void escribirContenido(Contenido contenido){
         String linea = String.join(SEPARADOR,
                 contenido.getTitulo(),
                 String.valueOf(contenido.getDuracion()),
@@ -33,8 +33,8 @@ public class FileUtils {
             System.out.println("Error al escribir en el archivo." + e.getMessage());
         }
     }
-    public static List<Pelicula> leerContenido(){
-        List<Pelicula> contenidoDesdeArchivo = new ArrayList<>();
+    public static List<Contenido> leerContenido(){
+        List<Contenido> contenidoDesdeArchivo = new ArrayList<>();
 
         try {
             List<String> lineas = Files.readAllLines(Path.of(NOMBRE_ARCHIVO));
@@ -48,10 +48,10 @@ public class FileUtils {
                     double calificacion = datos[3].isBlank() ? 0 : Double.parseDouble(datos[3]);
                     LocalDate fechaEstreno = LocalDate.parse(datos[4]);
 
-                    Pelicula pelicula = new Pelicula(titulo, duracion, genero, calificacion);
+                    Contenido contenido = new Contenido(titulo, duracion, genero, calificacion);
 
-                    pelicula.setFechaDeEstreno(fechaEstreno);
-                    contenidoDesdeArchivo.add(pelicula);
+                    contenido.setFechaDeEstreno(fechaEstreno);
+                    contenidoDesdeArchivo.add(contenido);
 
                 }
             });
