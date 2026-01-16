@@ -6,6 +6,7 @@ import estudio.personal.contenido.Pelicula;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,23 @@ public class FileUtils {
     public static final String NOMBRE_ARCHIVO = "contenido.txt";
     public static final String SEPARADOR = "|";
 
+    public static void escribirContenido(Pelicula contenido){
+        String linea = String.join(SEPARADOR,
+                contenido.getTitulo(),
+                String.valueOf(contenido.getDuracion()),
+                contenido.getGenero().name(),
+                String.valueOf(contenido.getCalificacion()),
+                contenido.getFechaDeEstreno().toString()
+                );
+        try {
+            Files.writeString(Path.of(NOMBRE_ARCHIVO),
+                    linea + System.lineSeparator(),
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.APPEND);
+        }catch (IOException e){
+            System.out.println("Error al escribir en el archivo." + e.getMessage());
+        }
+    }
     public static List<Pelicula> leerContenido(){
         List<Pelicula> contenidoDesdeArchivo = new ArrayList<>();
 

@@ -4,7 +4,9 @@ import estudio.personal.contenido.Genero;
 import estudio.personal.contenido.Pelicula;
 import estudio.personal.contenido.ResumenContenido;
 import estudio.personal.excepcion.PeliculaExistenteException;
+import estudio.personal.util.FileUtils;
 
+import java.io.File;
 import java.util.*;
 
 // LSTAS.
@@ -26,6 +28,8 @@ public class Plataforma {
         if (contenido != null){
             throw new PeliculaExistenteException(elemento.getTitulo());
         }
+
+        FileUtils.escribirContenido(elemento);
         this.contenido.add(elemento);
     }
 
