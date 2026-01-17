@@ -158,3 +158,10 @@ Aca manejamos la clase Contenido con todos los atibutos y metodos generales y se
 [Clase Hija(Documental)](../java-poo/src/estudio/personal/contenido/Documental.java)
 
 
+# Decima clase en Java.
+
+## Polimorfismo.
+En esta clase aplique el polimorfismo aprevechando que creamos clases hijas a partir de una clase generla (Padre) que nos hereda varios metodos que varian dependiendo de la clase hija que se instancie.
+Para este ejemplo primero filtramos el contenido que se quiere mostrar y dependiendo de esto imprimimos la ficha tecnica respondiente a la clase instanciada.
+[Ejemplo](../java-poo/src/estudio/personal/Main.java#L122)
+

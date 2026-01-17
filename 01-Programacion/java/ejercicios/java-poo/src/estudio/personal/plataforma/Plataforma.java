@@ -1,11 +1,10 @@
 package estudio.personal.plataforma;
 
-import estudio.personal.contenido.Contenido;
-import estudio.personal.contenido.Genero;
-import estudio.personal.contenido.ResumenContenido;
+import estudio.personal.contenido.*;
 import estudio.personal.excepcion.ContenidoExistenteException;
 import estudio.personal.util.FileUtils;
 
+import javax.print.Doc;
 import java.util.*;
 
 // LSTAS.
@@ -94,6 +93,20 @@ public class Plataforma {
         return contenido.stream()
                 .sorted(Comparator.comparing(Contenido::getCalificacion).reversed())
                 .limit(cantidad)
+                .toList();
+    }
+
+    public List<Pelicula> getPeliculas(){
+        return contenido.stream()
+                .filter(contenido1 -> contenido1 instanceof Pelicula)
+                .map(contenidoFiltrado -> (Pelicula) contenidoFiltrado)
+                .toList();
+    }
+
+    public List<Documental> getDocumentales(){
+        return contenido.stream()
+                .filter(contenido1 -> contenido1 instanceof Documental)
+                .map(contenidoFiltrado -> (Documental) contenidoFiltrado)
                 .toList();
     }
 

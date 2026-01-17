@@ -36,6 +36,10 @@ Un objeto es cualquier cosa, real o abstracta, en la que se almacenan datos y aq
     [Clase #9](../java/ejercicios/java-poo/README.md#HERENCIA)
 
 4. Polimorfismo: 
+    El polimorfismo nos permite crear objetos de diferentes clases que comparten la misma interfaz, pero pueden tener comportamientos diferentes.
+    Esto nos permite crear objetos dinamicamente y facilitar la flexibilidad de nuestros proyectos.
+    Mas sobre el polimorfismo se encuentra:
+    [Clase #10](../java/ejercicios/java-poo/README.md#POLIMORFISMO)
 
 # Constructores.
 Los constructores en Programacion orientada a objetos son metodos especiales que se llaman al crear un objeto, y se encargan de inicializar los atributos de la clase.
