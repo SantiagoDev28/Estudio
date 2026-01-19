@@ -3,7 +3,7 @@ package estudio.personal.contenido;
 import java.time.LocalDate;
 
 // Creamos la clase pelicula con cada uno de sus atributos.
-public class Contenido {
+public abstract class Contenido {
     // ATRIBUTOS
     // Una buena practica es mantener los atributos de las clases privados por defecto.
     private String titulo;
@@ -30,9 +30,7 @@ public class Contenido {
     }
 
     // METODOS
-    public void reproducir(){
-        System.out.println("Reproduciendo " + titulo);
-    }
+    public abstract void reproducir();
 
     public String obtenerFichaTecnica(){
             return titulo + " (" + fechaDeEstreno.getYear() + ")\n" +

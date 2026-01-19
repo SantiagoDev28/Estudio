@@ -96,6 +96,13 @@ public class Plataforma {
                 .toList();
     }
 
+    public List<Promocionable> getPromocionables(){
+        return contenido.stream()
+                .filter(contenido -> contenido instanceof Promocionable)
+                .map(contenidoProm -> (Promocionable) contenidoProm)
+                .toList();
+    }
+
     public List<Pelicula> getPeliculas(){
         return contenido.stream()
                 .filter(contenido1 -> contenido1 instanceof Pelicula)

@@ -165,3 +165,16 @@ En esta clase aplique el polimorfismo aprevechando que creamos clases hijas a pa
 Para este ejemplo primero filtramos el contenido que se quiere mostrar y dependiendo de esto imprimimos la ficha tecnica respondiente a la clase instanciada.
 [Ejemplo](../java-poo/src/estudio/personal/Main.java#L122)
 
+# Decima primera clase en Java.
+
+## Clases Abstractas.
+
+En esta clase aplique la teoria de las clases abstractas tratando las clases hijas de Contenido, modificando el comportamiento de algunos metodos que comparten varias clases hijas, obligando a que cada una sea tratada de manera diferente.
+[Clase Abstracta(Padre) y metodos abstractos](../java-poo/src/estudio/personal/contenido/Contenido.java)
+
+## Interfaces. 
+
+Aplique tambien el concepto de interfaces, empezando a conocer un poco del principio solid de inversion de independencias, donde cada clase debe de depender de abstracciones y no de clases concretas creando la interface Promocionable donde definimos el metodo promocionar que sera implementado directamente en la plataforma mostradonos los contenidos promocionables.
+[Clase Interface(Promocionable)](../java-poo/src/estudio/personal/contenido/Promocionable.java)
+
+

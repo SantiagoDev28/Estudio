@@ -41,6 +41,7 @@ public class Main {
 
         System.out.println("Mas de " + plataforma.getDuracionTotal() + " minutos de contenido! \n");
 
+        plataforma.getPromocionables().forEach(promocionable -> System.out.println(promocionable.promocionar() + "\n"));
 
         while (true) {
             int opcionElegida = ScannerUtils.capturarNumero("""
