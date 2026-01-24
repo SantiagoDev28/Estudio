@@ -22,4 +22,12 @@ Corremos el proyecto ejecutando la clase Main en el paquete principal.
   Utilizamos una libreria llamada Langchain4j para poder integrar LLM'S a nuestros Endpoints.
   Configuramos las variables de entorno para poder utilizar la libreria en el archivo `application.properties`.
   [Interface creada para las respuestas de IA](./pelist/src/main/java/com/pelist/PelistAiService.java)
-  
+
+# Clase #2 en Spring Boot.
+
+## Configuracion de los diferentes entornos.
+
+  En esta clase vimos que podemos tener diferentes entornos de trabajo, uno general que almacena las variables generales de todo el aplicativo, otro para el entorno de desarrollo y otro para el entorno de produccion.
+  Cada uno de ellos se encuentra dentro de la carpeta resources y maneja diferentes parametros de configuracion. En el archivo `application.properties` se puede definir cual usar de acuerdo a la variable `spring.profiles.active`.
+  [Carpeta resources](./pelist/src/main/resources)
+  [Archivo application.properties](./pelist/src/main/resources/application.properties)
